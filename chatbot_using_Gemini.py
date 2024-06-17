@@ -1,4 +1,3 @@
-import pathlib
 import textwrap
 import os
 import google.generativeai as genai
@@ -6,24 +5,24 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app) # Enable CORS for the app to allow cross-origin requests
 
 from IPython.display import display
 from IPython.display import Markdown
 
-
+# Function to convert text to Markdown format (use this if you want to display the response in a Markdown format in Jupyter Notebook) 
 def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')    # Set your API key here
 
-genai.configure(api_key='enter-your-api-key-here')
+genai.configure(api_key='enter-your-api-key-here') # Sometimes the API key needs to be set explicitly
 
     
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-1.5-flash') # Load the Gemini model
 
-@app.route('/chat', methods=['POST'])
+@app.route('/chat', methods=['POST']) # Create a route for the chat endpoint
 def chat():
     data = request.json
     prompt = data.get('prompt')
