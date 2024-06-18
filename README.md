@@ -11,6 +11,6 @@ Simple way to implement a custom chatbot from Gemini
 * To get API key from the Gemini,You can use this Link below
 * [Gemini API key](https://ai.google.dev/gemini-api/docs/api-key)
 > Step 04
-* Simple add that key to the relevent line in the python file
+* Simply add that key to the relevent line in the python file
 > Step 05
 * Now you are all set and run the server using the python and open the web interface by Xampp and use the chatbot
